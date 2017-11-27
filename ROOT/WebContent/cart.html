@@ -1,0 +1,179 @@
+
+<!-- Content ================================================== -->
+<div class="container margin_60_35">
+<form name="form" data-ng-submit="validatePaymentDetails()" role="form">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="box_style_2 hidden-xs info">
+				<h4 class="nomargin_top">
+					Delivery time <i class="icon_clock_alt pull-right"></i>
+				</h4>
+				<p>Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis
+					meliore ex, tollit debitis conclusionemque te eos.</p>
+				<hr>
+				<h4>
+					Secure payment <i class="icon_creditcard pull-right"></i>
+				</h4>
+				<p>Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis
+					meliore ex, tollit debitis conclusionemque te eos.</p>
+			</div>
+			<!-- End box_style_2 -->
+
+			<div class="box_style_2 hidden-xs" id="help">
+				<i class="icon_lifesaver"></i>
+				<h4>
+					Need <span>Help?</span>
+				</h4>
+				<a href="tel://004542344599" class="phone">+45 423 445 99</a> <small>Monday
+					to Friday 9.00am - 7.30pm</small>
+			</div>
+		</div>
+		<!-- End col-md-3 -->
+
+		<div class="col-md-6">
+			<div class="box_style_2">
+					<h2 class="inner">Payment methods</h2>
+					<div class="payment_select">
+						<label><input type="radio" value="" checked
+							name="payment_method" class="icheck" checked>Credit card</label> <i
+							class="icon_creditcard"></i>
+					</div>
+					<div class="form-group">
+						<label>Name on card</label> <input type="text"
+							class="form-control" id="name_card_order" name="name_card_order"
+							placeholder="Name on card" data-ng-model="name_card_order" required>
+							<span data-ng-show="form.name_card_order.$dirty && form.name_card_order.$error.required" class="help-block">Card Holder Name Required</span>
+					</div>
+					<div class="form-group">
+						<label>Card number</label> <input type="text" id="card_number"
+							name="card_number" class="form-control" placeholder="Card number" data-ng-model="card_number" required>
+							<span data-ng-show="form.card_number.$dirty && form.card_number.$error.required" class="help-block">Card Number Required</span>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label>Expiration date</label>
+							<div class="row">
+								<div class="col-md-6 col-sm-6">
+									<div class="form-group">
+										<input type="text" id="expire_month" name="expire_month"
+											class="form-control" placeholder="mm" data-ng-model="expire_month" required>
+											<span data-ng-show="form.expire_month.$dirty && form.expire_month.$error.required" class="help-block">Expire month Required</span>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6">
+									<div class="form-group">
+										<input type="text" id="expire_year" name="expire_year"
+											class="form-control" placeholder="yyyy"  data-ng-model="expire_year" required>
+											<span data-ng-show="form.expire_year.$dirty && form.expire_year.$error.required" class="help-block">Expire Year Required</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12">
+							<div class="form-group">
+								<label>Security code</label>
+								<div class="row">
+									<div class="col-md-4 col-sm-6">
+										<div class="form-group">
+											<input type="text" id="ccv" name="ccv" class="form-control"
+												placeholder="CCV"  data-ng-model="CCV" required>
+											<span data-ng-show="form.ccv.$dirty && form.ccv.$error.required" class="help-block">CCV Required</span>
+										</div>
+									</div>
+									<div class="col-md-8 col-sm-6">
+										<img src="img/icon_ccv.gif" width="50" height="29" alt="ccv"><small>Last
+											3 digits</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				<!--End row -->
+				<!-- <div class="payment_select" id="paypal">
+						<label><input type="radio" value="" name="payment_method" class="icheck">Pay with paypal</label>
+					</div>
+					<div class="payment_select nomargin">
+						<label><input type="radio" value="" name="payment_method" class="icheck">Pay with cash</label>
+						<i class="icon_wallet"></i>
+					</div> -->
+			</div>
+			<!-- End box_style_1 -->
+		</div>
+		<!-- End col-md-6 -->
+
+		<div class="col-md-3" id="sidebar">
+			<div class="theiaStickySidebar">
+				<div id="cart_box">
+					<h3>
+						Your order <i class="icon_cart_alt pull-right"></i>
+					</h3>
+					<table class="table table_summary">
+						<tbody>
+						
+							<tr data-ng-repeat="item in cartItems">
+								<td><a href="" data-ng-click="updateProductItemsQty(item,-1)"
+									class="remove_item"><i class="icon_minus_alt"></i></a> <span><input type="text" data-ng-value="item.qty" style="width:30px;padding:0px;"></span>
+									<a href="" data-ng-click="updateProductItemsQty(item,1)"
+									class="remove_item"><i class="icon_plus_alt"></i></a>
+									{{item.name}}</td>
+								<td><strong class="pull-right">${{item.price}}</strong></td>
+							</tr>
+							<!-- <tr data-ng-repeat="item in cartItems">
+								<td><a href="" data-ng-click="removeProductItems(item)"
+									class="remove_item"><i class="icon_minus_alt"></i></a> <strong>1x</strong>
+									{{item.name}}</td>
+								<td><strong class="pull-right">${{item.price}}</strong></td>
+							</tr> -->
+						</tbody>
+					</table>
+					<hr>
+					<div class="row" id="options_2">
+						<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+							<label><input type="radio" value="" checked
+								name="option_2" class="icheck">Delivery</label>
+						</div>
+						<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+							<label><input type="checkbox" value="" name="option_2"
+								class="icheck" data-ng-value="">Take Away</label>
+						</div>
+						
+					</div>
+					<!-- Edn options 2 -->
+					<hr>
+					<table class="table table_summary">
+						<tbody>
+							<tr>
+								<td>Subtotal <span class="pull-right">{{subtotalValue}}</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Delivery fee <span class="pull-right">${{deliveryCharges}}</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="total">TOTAL <span class="pull-right">${{subtotalValue+deliveryCharges}}</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr>
+					<!-- <a class="btn_full" href="#!/orderdetails">Confirm your order</a> -->
+					<div>
+						<a href="#!/orderdetails" class="btn_full">Confirm your order</a>
+	        			<!-- <button class="btn_full" type="submit" data-ng-disabled="form.$invalid || dataLoading" class="btn btn-danger">Confirm your order</button>
+	        			<img data-ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/> -->
+    				</div>
+				</div>
+				<!-- End cart_box -->
+			</div>
+			<!-- End theiaStickySidebar -->
+		</div>
+		<!-- End col-md-3 -->
+
+	</div>
+	<!-- End row -->
+	</form>
+</div>
+<!-- End container -->
+<!-- End Content =============================================== -->

@@ -1,0 +1,71 @@
+
+<!-- Content ================================================== -->
+<div class="container margin_60_35">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<div class="box_style_2">
+				<h2 class="inner">Confirmed Your Order</h2>
+				<div id="confirm">
+					<i class="icon_check_alt2"></i>
+					<h3>Thank you!</h3>
+					<p>
+						Please confirm your order and proceed topay
+					</p>
+				</div>
+				<h4>Order Summary</h4>
+				<table class="table table-striped nomargin">
+				<tbody>
+				<tr>
+					<td>Item Quantity</td>
+					<td>Item Name</td>				
+					<td><strong class="pull-right">Item Price</strong></td>
+				</tr>
+				<tr data-ng-repeat="item in cartItems">
+					<td>{{item.qty}}</td>
+					<td>{{item.name}}</td>				
+					<td><strong class="pull-right">${{item.price}}</strong></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>Delivery Schedule</td>				
+					<td><strong class="pull-right">Today 07.30 pm</strong></td>
+				</tr>
+				<tr >
+					<td class="total_confirm">Subtotal <span class="pull-right">{{subtotalValue}}</span></td>
+					<td class="total_confirm">Delivery fee <span class="pull-right">${{deliveryCharges}}</span> </td>
+					<td class="total_confirm">TOTAL <span class="pull-right">${{subtotalValue+deliveryCharges}}</span></td>
+				</tr>
+				</tbody>
+				</table>
+				<hr>
+				<table class="table table-striped nomargin">
+					<tbody>
+						<tr>
+							<td>Pin Code : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+							<td><input type="text" readonly value="125555"></input></td>
+						</tr>
+						<tr>
+							<td>Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td><textarea rows="5" cols="50"></textarea></td>
+						</tr>
+						<tr>
+							<td>&nbsp; </td>
+							<td><label><input type="checkbox" value="" name="option_2"
+								class="icheck" data-ng-modal="changeAddress" data-ng-model="changeAddressField" data-ng-value=false data-ng-click="enabledAddressField()">Change Addres</label></td>
+						</tr>
+						<tr data-ng-if="changeAddress">
+							<td>New Delivery Address : </td>
+							<td><textarea rows="5" cols="50"></textarea></td>
+					</tbody>
+				</table>		
+				
+				<hr>
+				
+				<div>
+					<a href="#!/orderdetails" class="btn_full">Place your order</a>
+    			</div>
+			</div>
+		</div>
+	</div><!-- End row -->
+</div><!-- End container -->
+<!-- End Content =============================================== -->

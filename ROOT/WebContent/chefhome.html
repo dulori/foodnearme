@@ -1,0 +1,642 @@
+	<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="#0">Home</a>
+				</li>
+				<li><a href="#0">Category</a>
+				</li>
+				<li>Page active</li>
+			</ul>
+			<a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
+		</div>
+	</div><!-- Position -->
+
+	<!-- Content ================================================== -->
+	<div class="container">
+			<div class="content">
+				<div data-ng-cloak>
+  				<md-content>
+    			<md-tabs md-dynamic-height md-border-bottom>
+				<md-tab label="MainInfo">
+       			<md-content class="md-padding">
+					<div class="indent_title_in">
+						<i class="icon_house_alt"></i>
+						<h3>General restaurant description</h3>
+						<p>Partem diceret praesent mel et, vis facilis alienum antiopam ea, vim in sumo diam sonet. Illud ignota cum te, decore elaboraret nec ea. Quo ei graeci repudiare definitionem. Vim et malorum ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
+					</div>
+
+					<div class="wrapper_indent">
+						<div class="form-group">
+							<label>Restaurant name</label>
+							<input class="form-control" name="restaurant_name" id="restaurant_name" type="text">
+						</div>
+						<div class="form-group">
+							<label>Restaurant description</label>
+							<textarea class="wysihtml5 form-control" placeholder="Enter text ..." style="height: 200px;"></textarea>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Telephone</label>
+									<input type="text" id="Telephone" name="Telephone" class="form-control">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Email</label>
+									<input type="email" id="Email" name="Email" class="form-control">
+								</div>
+							</div>
+						</div>
+					</div><!-- End wrapper_indent -->
+
+					<hr class="styled_2">
+
+					<div class="indent_title_in">
+						<i class="icon_pin_alt"></i>
+						<h3>Address</h3>
+						<p>
+							Mussum ipsum cacilds, vidis litro abertis.
+						</p>
+					</div>
+					<div class="wrapper_indent">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Country</label>
+									<select class="form-control" name="country" id="country">
+										<option value="" selected>Select your country</option>
+										<option value="Europe">Europe</option>
+										<option value="United states">United states</option>
+										<option value="Asia">Asia</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Street line 1</label>
+									<input type="text" id="street_1" name="street_1" class="form-control">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label>Street line 2</label>
+									<input type="text" id="street_2" name="street_2" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>City</label>
+									<input type="text" id="city_booking" name="city_booking" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>State</label>
+									<input type="text" id="state_booking" name="state_booking" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>Postal code</label>
+									<input type="text" id="postal_code" name="postal_code" class="form-control">
+								</div>
+							</div>
+						</div><!--End row -->
+					</div><!-- End wrapper_indent -->
+
+					<hr class="styled_2">
+					<div class="indent_title_in">
+						<i class="icon_images"></i>
+						<h3>Logo and restaurant photos</h3>
+						<p>
+							Mussum ipsum cacilds, vidis litro abertis.
+						</p>
+					</div>
+
+					<div class="wrapper_indent add_bottom_45">
+						<div class="form-group">
+							<label>Upload your restaurant logo</label>
+							<div id="logo_picture" class="dropzone">
+								<input name="file" type="file">
+								<div class="dz-default dz-message"><span>Click or Drop Images Here</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label>Upload your restaurant photos</label>
+							<div id="photos" class="dropzone">
+								<input name="file" type="file" multiple>
+								<div class="dz-default dz-message"><span>Click or Drop Images Here</span>
+								</div>
+							</div>
+						</div>
+					</div><!-- End wrapper_indent -->
+                    
+					<hr class="styled_2">
+					<div class="wrapper_indent">
+						<button class="btn_1">Save now</button>
+					</div><!-- End wrapper_indent -->
+                    
+				</md-content>
+				</md-tab>
+				
+				<md-tab label="Menu">
+       			<md-content class="md-padding">
+					<form name="form" data-ng-submit="addPublishItem()" role="form" novalidate >
+					<div class="wrapper_indent">
+						<div class="form-group">
+							<label>Menu Category <span style="color:red; font-size: medium;"> * </span></label>
+							<select name="category" class="form-control" data-ng-model="publishItem.category" required>
+								<option value="">--Select--</option>
+								<option data-ng-repeat="item in listItemCategory" value="item.name" >{{item.name}}</option>
+							</select>
+							<span style="color:red; font-size: medium;"
+					data-ng-show="form.category.$dirty && form.category.$error.required"
+					class="help-block">Category is required</span> 
+					
+					<br>
+					
+					<label>Sub Category <span style="color:red; font-size: medium;"> * </span></label>
+							<select name="subcategory" class="form-control" data-ng-model="publishItem.subcategory" required>
+								<option value="">--Select--</option>
+								<option data-ng-repeat="item in listItemCategory" value="item.name" >{{item.name}}</option>
+							</select>
+							<span style="color:red; font-size: medium;"
+					data-ng-show="form.subcategory.$dirty && form.subcategory.$error.required"
+					class="help-block">Sub Category is required</span> 
+					
+						</div>
+						<div class="strip_menu_items">
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="menu-item-pic dropzone">
+										<input name="file" type="file">
+										<div class="dz-default dz-message"><span>Click or Drop<br>Images Here</span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-sm-9">
+									<div class="row">
+										<div class="col-md-8">
+											<div class="form-group">
+												<label>Title <span style="color:red; font-size: medium;"> * </span></label>
+												<input type="text"  name="name" class="form-control" data-ng-model="publishItem.name" required>
+												<span style="color:red; font-size: medium;"
+					data-ng-show="form.name.$dirty && form.name.$error.required"
+					class="help-block">Item Name is required</span> 
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Price <span style="color:red; font-size: medium;"> * </span></label>
+												<input type="text" name="price" class="form-control" data-ng-model="publishItem.price" required>
+												<span style="color:red; font-size: medium;"
+					data-ng-show="form.price.$dirty && form.price.$error.required"
+					class="help-block">Price is required</span> 
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Short description <span style="color:red; font-size: medium;"> * </span></label>
+										<input type="text" name="description" class="form-control" data-ng-model="publishItem.description" required>
+										<span style="color:red; font-size: medium;"
+					data-ng-show="form.description.$dirty && form.description.$error.required"
+					class="help-block">Description is required</span> 
+									</div>
+									<div class="form-group">
+										<label>Ingrediants <span style="color:red; font-size: medium;"> * </span></label>
+										<input type="text" name="ingrediants" class="form-control" data-ng-model="publishItem.ingrediants" required>
+										<span style="color:red; font-size: medium;"
+					data-ng-show="form.ingrediants.$dirty && form.ingrediants.$error.required"
+					class="help-block">Ingrediants is required</span> 
+									</div>
+									<div class="form-group">
+										<label>Surve Date & time <span style="color:red; font-size: medium;"> * </span></label>
+									</div>
+									<div class="row">
+				                        <div class="col-md-6 col-sm-6">
+				                            <div class="form-group">
+				                                <label><i class="icon-calendar-7"></i> Select a date</label>
+				                                <md-datepicker ng-model="publishItem.startdate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+				                            </div>
+				                        </div>
+				                        <div class="col-md-6 col-sm-6">
+				                            <div class="form-group">
+				                                <label><i class=" icon-clock"></i> Time</label>
+				                              <md-time-picker data-ng-model="publishItem.starttime" message="message" read-only="readonly" mandatory="required" no-meridiem no-auto-switch></md-time-picker>
+				                            </div>
+				                        </div>
+				                    </div>
+									
+									
+									<div class="form-group">
+										<label>Quantity min people to surve <span style="color:red; font-size: medium;"> * </span></label>
+										<input type="text" name="qty" class="form-control" data-ng-model="publishItem.qty" required>
+										<span style="color:red; font-size: medium;"
+					data-ng-show="form.qty.$dirty && form.qty.$error.required"
+					class="help-block">Quantity min people to surve is required</span> 
+									</div>
+									<div class="form-group">
+										<label> <input type="checkbox" name="menu_item_description" data-ng-model="publishItem.ordertype.delivery"> Delivery</label>
+										<label> <input type="checkbox" name="menu_item_description"data-ng-model="publishItem.takeaway"> Take Away</label>
+									</div>
+								</div>
+							</div><!-- End row -->
+						</div><!-- End strip_menu_items -->
+						<hr class="styled_2">
+					</div>
+                  
+					<div class="wrapper_indent">
+						<div class="add_more_cat">
+							<button type="submit" class="btn_1">Publish</button>
+						 </div>
+					</div><!-- End wrapper_indent -->
+                    </form>
+				</md-content>
+				</md-tab>
+				
+				<md-tab label="Published Items">
+       				<md-content class="md-padding">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="box_style_1">
+								<br>
+									<ul>
+										<li>
+											<label class="">
+												<span class="icheckbox_square-grey" style="position: relative;">
+													<input type="checkbox" class="icheck" style="position: absolute; opacity: 0;">
+												</span> All <span class="badge">{{listproductitems.length}}</span> 
+											</label><i class="color_1"></i>
+										</li>
+										
+										<li data-ng-repeat="item in listItemCategory">
+											<label class="">
+												<span class="icheckbox_square-grey" style="position: relative;">
+													<input type="checkbox" class="icheck" style="position: absolute; opacity: 0;">
+												</span> {{item.name}} <span class="badge">{{item.size}}</span>
+											</label><i class="color_1"></i>
+										</li>	
+									</ul>
+								</div>
+							</div>
+							<!-- End col-md-3 -->
+					
+							<div class="col-md-9">
+								<div class="box_style_2" id="main_menu">
+								<h2 class="inner">Menu</h2>
+								<div class="row">
+									<div class="col-md-6 col-sm-6 wow zoomIn animated"
+									data-wow-delay="0.1s"
+									style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;" data-ng-repeat="item in listproductitems">
+										<div class="ribbon_1" data-ng-if="item.popularity">Popular</div>
+										<div class="desc">
+											<div class="thumb_strip">
+												<img src="img/thumb_restaurant.jpg" alt="">
+											</div>
+											<h3>Name : {{item.name}}</h3>
+											<div class="type">Category : {{item.category}} -> {{item.subcategory}}</div>
+											<div class="location">
+												Desciption :  {{item.description}} <br>
+											</div>
+											<div class="location">
+												Ingrediants : {{item.ingrediants}} <br>
+											</div>
+											<div class="location">
+												Quantity to surve : {{item.qty}} <br>
+											</div>
+											<div class="location">
+												Time to surve (duration) : {{item.survetime}} <br>
+											</div>
+											<div class="location">
+												Price per item : &#36; {{item.price}} <br>
+											</div>
+											<ul>
+												<li data-ng-if="item.ordertype.takeaway">Take away<i class="icon_check_alt2 ok"></i></li>
+												<li data-ng-if="item.ordertype.delivery">Delivery<i class="icon_check_alt2 ok"></i></li>
+											</ul>
+										</div>
+										<button class="btn" title="Edit"><i class="icon-edit"></i></button>
+										<button class="btn" title="Delete"><i class="icon-trash"></i></button>
+										<br>
+										<hr>
+										<br>
+								</div>
+								</div>
+								
+								</div>
+								<!-- End box_style_1 -->
+							</div>
+							<!-- End col-md-6 -->
+						</div>
+					</md-content>
+       			</md-tab>
+				
+				<md-tab label="Settings">
+       			<md-content class="md-padding">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 add_bottom_15">
+							<div class="indent_title_in">
+								<i class="icon_lock_alt"></i>
+								<h3>Change your password</h3>
+								<p>
+									Mussum ipsum cacilds, vidis litro abertis.
+								</p>
+							</div>
+							<div class="wrapper_indent">
+								<div class="form-group">
+									<label>Old password</label>
+									<input class="form-control" name="old_password" id="old_password" type="password">
+								</div>
+								<div class="form-group">
+									<label>New password</label>
+									<input class="form-control" name="new_password" id="new_password" type="password">
+								</div>
+								<div class="form-group">
+									<label>Confirm new password</label>
+									<input class="form-control" name="confirm_new_password" id="confirm_new_password" type="password">
+								</div>
+								<button type="submit" class="btn_1 green">Update Password</button>
+							</div><!-- End wrapper_indent -->
+						</div>
+                        
+						<div class="col-md-6 col-sm-6 add_bottom_15">
+							<div class="indent_title_in">
+								<i class="icon_mail_alt"></i>
+								<h3>Change your email</h3>
+								<p>
+									Mussum ipsum cacilds, vidis litro abertis.
+								</p>
+							</div>
+							<div class="wrapper_indent">
+								<div class="form-group">
+									<label>Old email</label>
+									<input class="form-control" name="old_email" id="old_email" type="email">
+								</div>
+								<div class="form-group">
+									<label>New email</label>
+									<input class="form-control" name="new_email" id="new_email" type="email">
+								</div>
+								<div class="form-group">
+									<label>Confirm new email</label>
+									<input class="form-control" name="confirm_new_email" id="confirm_new_email" type="email">
+								</div>
+								<button type="submit" class="btn_1 green">Update Email</button>
+							</div><!-- End wrapper_indent -->
+						</div>
+                        
+					</div><!-- End row -->
+
+					<hr class="styled_2">
+                    
+					<div class="indent_title_in">
+						<i class="icon_shield"></i>
+						<h3>Notification settings</h3>
+						<p>
+							Mussum ipsum cacilds, vidis litro abertis.
+						</p>
+					</div>
+					<div class="row">
+                    
+						<div class="col-md-6 col-sm-6">
+							<div class="wrapper_indent">
+								<table class="table table-striped notifications">
+									<tbody>
+										<tr>
+											<td style="width:5%">
+												<i class="icon_pencil-edit_alt"></i>
+											</td>
+											<td style="width:65%">
+												New orders
+											</td>
+											<td style="width:35%">
+												<label>
+													<input type="checkbox" name="option_1_settings" checked class="icheck" value="yes">Yes</label>
+												<label class="margin_left">
+													<input type="checkbox" name="option_1_settings" class="icheck" value="no">No</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<i class="icon_pencil-edit_alt"></i>
+											</td>
+											<td>
+												Modified orders
+											</td>
+											<td>
+												<label>
+													<input type="checkbox" name="option_2_settings" checked class="icheck" value="yes">Yes</label>
+												<label class="margin_left">
+													<input type="checkbox" name="option_2_settings" class="icheck" value="no">No</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<i class="icon_pencil-edit_alt"></i>
+											</td>
+											<td>
+												New user registration
+											</td>
+											<td>
+												<label>
+													<input type="checkbox" name="option_3_settings" checked class="icheck" value="yes">Yes</label>
+												<label class="margin_left">
+													<input type="checkbox" name="option_3_settings" class="icheck" value="no">No</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<i class="icon_pencil-edit_alt"></i>
+											</td>
+											<td>
+												New comments
+											</td>
+											<td>
+												<label>
+													<input type="checkbox" name="option_4_settings" checked class="icheck" value="yes">Yes</label>
+												<label class="margin_left">
+													<input type="checkbox" name="option_4_settings" class="icheck" value="no">No</label>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<button type="submit" class="btn_1 green">Update notifications settings</button>
+							</div>
+                            
+						</div><!-- End row -->
+					</div><!-- End wrapper_indent -->
+                    </md-content>
+                    </md-tab>
+                    </md-tabs>
+                    </md-content>
+                    </div>
+
+			</div><!-- End content -->
+		</div>
+	
+	<!-- End Content =============================================== -->
+
+	<!-- Footer ================================================== -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-3">
+					<h3>Secure payments with</h3>
+					<p><img src="img/cards.png" alt="" class="img-responsive">
+					</p>
+
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<h3>About</h3>
+					<ul>
+						<li><a href="about.html">About us</a>
+						</li>
+						<li><a href="faq.html">Faq</a>
+						</li>
+						<li><a href="contacts.html">Contacts</a>
+						</li>
+						<li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a>
+						</li>
+						<li><a href="#0" data-toggle="modal" data-target="#register">Register</a>
+						</li>
+						<li><a href="#0">Terms and conditions</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3" id="newsletter">
+					<h3>Newsletter</h3>
+					<p>Join our newsletter to keep be informed about offers and news.</p>
+					<div id="message-newsletter_2"></div>
+					<form method="post" action="assets/newsletter.php" name="newsletter_2" id="newsletter_2">
+						<div class="form-group">
+							<input name="email_newsletter_2" id="email_newsletter_2" type="email" value="" placeholder="Your mail" class="form-control">
+						</div>
+						<input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
+					</form>
+				</div>
+				<div class="col-md-2 col-sm-3">
+					<h3>Settings</h3>
+					<div class="styled-select">
+						<select class="form-control" name="lang" id="lang">
+							<option value="English" selected>English</option>
+							<option value="French">French</option>
+							<option value="Spanish">Spanish</option>
+							<option value="Russian">Russian</option>
+						</select>
+					</div>
+					<div class="styled-select">
+						<select class="form-control" name="currency" id="currency">
+							<option value="USD" selected>USD</option>
+							<option value="EUR">EUR</option>
+							<option value="GBP">GBP</option>
+							<option value="RUB">RUB</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- End row -->
+			<div class="row">
+				<div class="col-md-12">
+					<div id="social_footer">
+						<ul>
+							<li><a href="#0"><i class="icon-facebook"></i></a>
+							</li>
+							<li><a href="#0"><i class="icon-twitter"></i></a>
+							</li>
+							<li><a href="#0"><i class="icon-google"></i></a>
+							</li>
+							<li><a href="#0"><i class="icon-instagram"></i></a>
+							</li>
+							<li><a href="#0"><i class="icon-pinterest"></i></a>
+							</li>
+							<li><a href="#0"><i class="icon-vimeo"></i></a>
+							</li>
+							<li><a href="#0"><i class="icon-youtube-play"></i></a>
+							</li>
+						</ul>
+						<p>© Quick Food 2015</p>
+					</div>
+				</div>
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- End container -->
+	</footer>
+	<!-- End Footer =============================================== -->
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<!-- Login modal -->
+	<div class="modal fade" id="login_2" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<form action="#" class="popup-form" id="myLogin">
+					<div class="login_icon"><i class="icon_lock_alt"></i>
+					</div>
+					<input type="text" class="form-control form-white" placeholder="Username">
+					<input type="text" class="form-control form-white" placeholder="Password">
+					<div class="text-left">
+						<a href="#">Forgot Password?</a>
+					</div>
+					<button type="submit" class="btn btn-submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End modal -->
+
+	<!-- Register modal -->
+	<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<form action="#" class="popup-form" id="myRegister">
+					<div class="login_icon"><i class="icon_lock_alt"></i>
+					</div>
+					<input type="text" class="form-control form-white" placeholder="Name">
+					<input type="text" class="form-control form-white" placeholder="Last Name">
+					<input type="email" class="form-control form-white" placeholder="Email">
+					<input type="text" class="form-control form-white" placeholder="Password" id="password1">
+					<input type="text" class="form-control form-white" placeholder="Confirm password" id="password2">
+					<div id="pass-info" class="clearfix"></div>
+					<div class="checkbox-holder text-left">
+						<div class="checkbox">
+							<input type="checkbox" value="accept_2" id="check_2" name="check_2" />
+							<label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span>
+							</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-submit">Register</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End Register modal -->
+
+	<!-- Search Menu -->
+	<div class="search-overlay-menu">
+		<span class="search-overlay-close"><i class="icon_close"></i></span>
+		<form role="search" id="searchform" method="get">
+			<input value="" name="q" type="search" placeholder="Search..." />
+			<button type="submit"><i class="icon-search-6"></i>
+			</button>
+		</form>
+	</div>
+	<!-- End Search Menu -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts_min.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="assets/validate.js"></script>
+
+	

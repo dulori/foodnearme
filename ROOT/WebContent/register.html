@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<html>
+<head>
+<meta charset="utf-8">
+<!-- GOOGLE WEB FONT -->
+<link
+	href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic'
+	rel='stylesheet' type='text/css'>
+
+<!-- BASE CSS -->
+<link href="css/base.css" rel="stylesheet">
+
+<!-- Radio and check inputs -->
+<link href="css/skins/square/grey.css" rel="stylesheet">
+
+<style>
+.form-group span {
+	color: red;
+}
+
+.form-group lable span {
+	color: red;
+	font-weight: bold;
+}
+</style>
+
+<link href="css/date_time_picker.css" rel="stylesheet">
+</head>
+<body>
+	<div>
+		<form name="form" data-ng-submit="dataLoading" role="form" novalidate>
+			<div class="modal-dialog">
+				<div class="modal-content modal-popup">
+					<div class="box_style_2" id="order_process">
+						<h2 class="inner">Register your details here</h2>
+						<hr>
+						<div class="row">
+							<div class="panel-group" id="joinAs">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse"
+												data-parent="#joinAs" href="javascript:;" data-target="#collapseOne"
+												aria-expanded="false">Join As<i class="indicator pull-right icon_plus_alt2"></i>
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse"
+										aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<div class="form-group">
+												<label>Wants to join as <span>*</span></label> <br>
+												<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+													<label><input type="radio" value="" name="option_2"
+														class="icheck"> Customer </label>
+												</div>
+												<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+													<label><input type="radio" value="" name="option_2"
+														class="icheck"> Chef </label>
+												</div>
+												<br>
+											</div>
+											
+											<a class="btn btn-danger" data-toggle="collapse"
+												data-parent="#personalInfoPanel"
+												href="javascript:;" data-target="#personalInfo" aria-expanded="false">Next</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel-group" id="personalInfoPanel">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse"
+												data-parent="#personalInfoPanel"
+												 href="javascript:;" data-target="#personalInfo" aria-expanded="false">Personal
+												Information<i class="indicator pull-right icon_plus_alt2"></i>
+											</a>
+										</h4>
+									</div>
+									<div id="personalInfo" class="panel-collapse collapse"
+										aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<div class="form-group">
+												<label>First Name <span>*</span></label> <input type="text"
+													class="form-control" id="firstname" name="firstname"
+													placeholder="First name" required
+													data-ng-model="registerDetails.firstname"> <span
+													data-ng-show="form.firstname.$dirty && form.firstname.$error.required"
+													class="help-block">First Name Required</span>
+											</div>
+											<div class="form-group">
+												<label>Last Name <span>*</span></label> <input type="text"
+													class="form-control" id="lastname" name="lastname"
+													placeholder="Last name" required
+													data-ng-model="registerDetails.lastname"> <span
+													data-ng-show="form.lastname.$dirty && form.lastname.$error.required"
+													class="help-block">Last Name Required</span>
+											</div>
+											<div class="form-group">
+												<label>Telephone/mobile <span>*</span></label> <input
+													type="text" id="mobile" name="mobile" class="form-control"
+													placeholder="mobile" required
+													data-ng-model="registerDetails.mobile"> <span
+													data-ng-show="form.mobile.$dirty && form.mobile.$error.required"
+													class="help-block">Mobile Required</span>
+											</div>
+											<div class="form-group">
+												<label>Address <span>*</span></label>
+												<textarea class="form-control" style="height: 150px"
+													placeholder="Enter address here" name="address"
+													id="address" required
+													data-ng-model="registerDetails.address"></textarea>
+												<span
+													data-ng-show="form.address.$dirty && form.address.$error.required"
+													class="help-block">Address Required</span>
+											</div>
+											<div class="form-group">
+												<label><i class="icon-calendar-7"></i> Select date
+													of Birth <span>*</span></label> <input
+													class="date-pick form-control" data-date-format="M d, D"
+													type="date" id="dob" name="dob" required
+													data-ng-model="registerDetails.dob"> <span
+													data-ng-show="form.dob.$dirty && form.dob.$error.required"
+													class="help-block">Date of Birth Required</span>
+											</div>
+											<a class="btn btn-danger" data-toggle="collapse"
+												data-parent="#accountInfoPanel"
+												href="javascript:;" data-target="#accountInfo" aria-expanded="false">Next</a>
+												<a class="btn btn-danger" data-toggle="collapse"
+												data-parent="#joinAs" href="javascript:;" data-target="#personalInfo" aria-expanded="false">Back</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel-group" id="accountInfoPanel">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse"
+												data-parent="#accountInfoPanel"
+												href="javascript:;" data-target="#accountInfo" aria-expanded="false">Account Information<i class="indicator pull-right icon_plus_alt2"></i>
+											</a>
+										</h4>
+									</div>
+									<div id="accountInfo" class="panel-collapse collapse"
+										aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<div class="form-group">
+												<label>Credit card Number <span>*</span></label> <input
+													type="text" id="creditcardNumber" name="creditcardNumber"
+													class="form-control" placeholder="Credit card Number"
+													required data-ng-model="registerDetails.creditcardNumber"
+													data-credit-card-type data-ng-pattern="/^[0-9]+$/"
+													data-ng-minlength="15" maxlength="19"> <span
+													data-ng-show="form.creditcardNumber.$error.minlength">Credit
+													card must be 15-19 digits</span> <span
+													data-ng-show="form.creditcardNumber.$error.pattern">Credit
+													card must consist of only numbers</span> <span
+													data-ng-show="form.creditcardNumber.$error.invalid">Credit
+													card must be a valid Amex, Visa, Discover, or Master Card</span> <span
+													data-ng-show="form.creditcardNumber.$error.required">Credit
+													card required</span>
+											</div>
+
+											<div class="row">
+												<div class="col-md-5">
+													<div class="form-group">
+														<label>Expiry Month <span>*</span></label> <select
+															id="expirymonth" name="expirymonth" class="form-control"
+															required data-ng-model="registerDetails.expirymonth"
+															style="display: inline;">
+																<option value="">--Select--</option>
+																<option value="1">JAN</option>
+																<option value="2">FEB</option>
+																<option value="3">MAR</option>
+																<option value="4">APR</option>
+																<option value="5">MAY</option>
+																<option value="6">JUN</option>
+																<option value="7">JUL</option>
+																<option value="8">AUG</option>
+																<option value="9">SEPT</option>
+																<option value="10">OCT</option>
+																<option value="11">NOV</option>
+																<option value="12">DEC</option>
+
+														</select>
+														<span
+															data-ng-show="form.expirymonth.$dirty && form.expirymonth.$error.required"
+															class="help-block">Expiry Month Required</span>
+													</div>
+												</div>
+												<div class="col-md-4">
+												 <label>Expiry Year<span>*</span></label> 
+													<select id="expiryYear" name="expiryYear"
+														class="form-control" required
+														data-ng-model="registerDetails.expiryYear"
+														style="display: inline;">
+														<option value="">--Select--</option>
+														<option data-ng-repeat="n in range(2017,2050)" value="n">{{n}}</option>
+
+													</select> <span
+														data-ng-show="form.expiryYear.$dirty && form.expiryYear.$error.required"
+														class="help-block">Expiry Year Required</span>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group">
+														<label>CCV <span>*</span></label> <input type="text"
+															id="ccv" name="ccv" class="form-control"
+															placeholder="ccv" required
+															data-ng-model="registerDetails.ccv"
+															data-ng-pattern="/^[0-9]+$/" data-ng-minlength="3"
+															maxlength="4"> <span
+															data-ng-show="form.ccv.$dirty && form.ccv.$error.required"
+															class="help-block">CCV Required</span> <span
+															data-ng-show="paymentForm.securityCode.$error.pattern">Security
+															code must contain only numbers</span> <span
+															data-ng-show="paymentForm.securityCode.$error.minlength">Security
+															code must be 3-4 digits</span> <span
+															data-ng-show="paymentForm.securityCode.$error.required">Security
+															code required</span>
+													</div>
+												</div>
+											</div>
+
+											<a class="btn btn-danger" data-toggle="collapse"
+												data-parent="#authenticationInfoPanel"
+												href="javascript:;" data-target="#authenticationInfo" aria-expanded="false">Next</a>
+											<a class="btn btn-danger" data-toggle="collapse"
+												data-parent="#personalInfoPanel"
+												href="javascript:;" data-target="#personalInfo" aria-expanded="false">Back</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel-group" id="authenticationInfoPanel">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse"
+												data-parent="#authenticationInfoPanel"
+												href="javascript:;" data-target="#authenticationInfo" aria-expanded="false">Authentication Information<i class="indicator pull-right icon_plus_alt2"></i>
+											</a>
+										</h4>
+									</div>
+									<div id="authenticationInfo" class="panel-collapse collapse"
+										aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<div class="form-group">
+												<label>Driver Licence <span>*</span></label> <input
+													type="text" id="driverLicence" name="driverLicence"
+													class="form-control" placeholder="Your Driving Licence"
+													required data-ng-model="registerDetails.driverLicence">
+												<span
+													data-ng-show="form.driverLicence.$dirty && form.driverLicence.$error.required"
+													class="help-block">Driver Licence Number Required</span>
+													
+											</div>
+											<div class="form-group">
+												<label>Browse <span>*</span></label> <input
+													type="file" id="driverLicenceImage" name="driverLicenceImage"
+													class="form-control" placeholder="Your Driving Licence"
+													required data-ng-model="registerDetails.driverLicenceImage">
+												<span
+													data-ng-show="form.driverLicenceImage.$dirty && form.driverLicenceImage.$error.required"
+													class="help-block">Driver Licence Photo Required</span>
+											</div>
+											<div class="row">
+												<div class="col-md-4"></div>
+												<div class="col-md-4">
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label><i class="icon-calendar-7"></i>Camera</label>
+														<button class="btn_full" type="button"
+															data-ng-click="openCamera()">Open</button>
+													</div>
+												</div>
+											</div>
+											<div class="form-group" data-ng-if="showCamera">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Camera</label>
+															<!-- <div id="my_camera" class="form-control"
+																style="height: 150px; border: 1px solid black;" > -->
+																<webcam channel="channel"  on-streaming="onSuccess()"   on-error="onError(err)"   on-stream="onStream(stream)"></webcam>
+															<!-- </div>  -->
+															<br><br><br><br><br><br><br><br><br><br>
+															<button class="btn btn-primary" type="button"
+															data-ng-click="makeSnapshot()">Capture</button>
+														</div>	
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Captured image</label>
+															<br><br>
+															<canvas id="results" class="form-control"
+																style="height: 150px; border: 1px solid black;"> captured image.....! </canvas>
+														</div>	
+													</div>
+												</div>
+												
+												<hr>
+											</div>
+											<a class="btn btn-danger" data-toggle="collapse"
+												data-parent="#accountInfoPanel"
+												href="javascript:;" data-target="#authenticationInfo" aria-expanded="false">Back</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<button class="btn_full" type="submit"
+									data-ng-disabled="form.$invalid || dataLoading"
+									class="btn btn-danger">Register</button>
+								<img data-ng-if="dataLoading"
+									src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+							</div>
+
+
+						</div>
+						<!-- End box_style_1 -->
+					</div>
+					<!-- End col-md-6 -->
+				</div>
+				<!-- End container -->
+				<!-- End Content =============================================== -->
+			</div>
+		</form>
+	</div>
+
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts_min.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="assets/validate.js"></script>
+
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="js/theia-sticky-sidebar.js"></script>
+	<script>
+		jQuery('#sidebar').theiaStickySidebar({
+			additionalMarginTop : 80
+		});
+	</script>
+
+	<!-- Date and time pickers -->
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap-timepicker.js"></script>
+	<script>
+		$('input.date-pick').datepicker('setDate', 'today');
+		$('input.time-pick').timepicker({
+			minuteStep : 15,
+			showInpunts : false
+		})
+	</script>
+	
+</body>
+</html>
