@@ -1,7 +1,7 @@
 /**
  * 
  */
-var app = angular.module('MyApp', [ 'ngMaterial', 'ngMessages', 'ngRoute' ,'ngCookies','ui.bootstrap.modal','ngStorage','webcam','md.time.picker']);
+var app = angular.module('MyApp', [ 'ngMaterial', 'ngMessages', 'ngRoute' ,'ngCookies','ui.bootstrap.modal','ngStorage','webcam']);
 
 app.config(function($routeProvider) {
 	$routeProvider.when("/", {

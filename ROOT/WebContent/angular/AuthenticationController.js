@@ -5,6 +5,9 @@ app.controller('LoginController', LoginController);
 
 function LoginController($locale,$scope, $rootScope, $location, AuthenticationService,
 		AlertService) {
+	
+	var urlBase = 'http://localhost:2307/Service1.svc';
+	
 	// reset login status
 	AuthenticationService.ClearCredentials();
 	$scope.registerDetails={};
@@ -142,6 +145,7 @@ var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
 			if (response.success) {
 				AuthenticationService.SetCredentials($scope.username,
 						$scope.password, $scope.usertype);
+				alert($scope.usertype);
 				if ($scope.usertype === 'Customer') {
 					$location.path('/list');
 				} else {

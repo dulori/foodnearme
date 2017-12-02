@@ -57,6 +57,8 @@ function productscontroller($scope, $location, SearchService, $q, $timeout,CartS
 	
 	function getListproductsItems() {
 
+		
+		// get Products from
 		var listproductitems = [{
 			"id":"1",
 			"name" : "Product 1",

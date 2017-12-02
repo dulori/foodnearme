@@ -123,7 +123,7 @@
 					
 						<ul data-ng-if="globals.currentUser">
 							<li style="color : #cff50b;" data-ng-if="globals.currentUser">Welcome : {{globals.currentUser.username}}</li>
-							<li style="color : #cff50b;" class="btn btn-primary" data-ng-if="globals.currentUser.userType=='customer'"> <a href="" data-ng-click="ctrl.open()"><i class="icon_cart_alt"></i> <span class="badge">{{cartItems.length || 0}}</span></a></li>
+							<li style="color : #cff50b;" class="btn btn-primary" data-ng-if="globals.currentUser.userType=='Customer'"> <a href="" data-ng-click="ctrl.open()"><i class="icon_cart_alt"></i> <span class="badge">{{cartItems.length || 0}}</span></a></li>
 							<li data-ng-if="globals.currentUser"><a href="#!/login"  style="color : #cff50b;"> Logout </a></li>
 						</ul>
 						
@@ -145,7 +145,7 @@
 	<!-- SubHeader =============================================== -->
 	<section class="header-video">
 		<div id="hero_video">
-			<div id="sub_content" data-ng-if="globals.currentUser.userType=='customer' || !globals.currentUser">
+			<div id="sub_content" data-ng-if="globals.currentUser.userType=='Customer' || !globals.currentUser">
 				<p>Search Food</p>
 				<div class="autocompletedemoFloatingLabel">
 					<form data-ng-submit="searchShef()" >
